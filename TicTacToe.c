@@ -32,7 +32,6 @@ int main(void)
 			playerchanged=MoveCursor();
 		}
 		winner = CheckWinner();
-		printf("count:%d",count);
 		if(count==9){printf("No Winner!\n");break;}
 		if(winner)
 		{
