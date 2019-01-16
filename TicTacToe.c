@@ -21,7 +21,7 @@ void PlayerNames(void);
 int main(void)
 {	
 
-	Winner winner=0;
+	int winner=0;
 	Display();
 	PlayerNames();
 	while(1)
@@ -32,6 +32,7 @@ int main(void)
 			playerchanged=MoveCursor();
 		}
 		winner = CheckWinner();
+		printf("count:%d",count);
 		if(count==9){printf("No Winner!\n");break;}
 		if(winner)
 		{
@@ -141,7 +142,7 @@ int EnterValue(char input,int x,int y)
 
 int CheckWinner()
 {	
-	if(count!=9)
+	if(count<=9)
 	{
 	     if((matrix[0][0]==matrix[0][1]) && (matrix[0][1]==matrix[0][2]) && (matrix[0][0]=='X' || matrix[0][0]=='O')){count++;return 1; }
 	else if((matrix[1][0]==matrix[1][1]) && (matrix[1][1]==matrix[1][2]) && (matrix[1][0]=='X' || matrix[1][0]=='O')){count++;return 1; }
@@ -153,7 +154,8 @@ int CheckWinner()
 
 	else if((matrix[0][0]==matrix[1][1]) && (matrix[1][1]==matrix[2][2]) && (matrix[0][0]=='X' || matrix[0][0]=='O')){count++;return 1;}
 	else if((matrix[0][2]==matrix[1][1]) && (matrix[1][1]==matrix[2][0]) && (matrix[0][2]=='X' || matrix[0][2]=='O')){count++;return 1;}
-	}		 
-	return No;
+	}	
+	++count;
+	return 0;
 
 }
